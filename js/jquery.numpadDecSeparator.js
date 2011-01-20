@@ -1,8 +1,9 @@
-﻿/*
+﻿/**
 *	Numpad decimal separator plugin for jQuery.
 *
-*	@author Gert Nuyens
+*   @author Gert Nuyens
 *	@version 1.0.0
+* 	Dual licensed under the MIT (MIT-LICENSE.txt) or GPL Version 2 licenses (GPL-LICENSE.txt).
 *
 * 	Dependencies:
 *	- jQuery (http://jquery.com)
@@ -26,7 +27,7 @@
 *	$(".amount").numpadDecSeparator({separator: ' '});
 *	$(".amount").numpadDecSeparator({useRegionalSettings: true});
 *	$(".amount").numpadDecSeparator('unbind');
-*/
+**/
 (function($){
 	var defaults = {
 		separator: ',',

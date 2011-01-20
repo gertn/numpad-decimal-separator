@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<project name="numpadDecSeperator" default="build.dist.package" basedir=".">
+
+    <target name="clean" depends="-load.properties">
+        <delete dir="${build.dir}" quiet="true"/>
+    </target>
+
+    <target name="-load.properties">
+        <property file="ant.properties"/>
+    </target>
+
+    <target name="-init" depends="-load.properties">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="build.dist.package" depends="clean, -init">
+        <mkdir dir="${build.dir}/${dist.package.name}"/>
+        <mkdir dir="${build.dir}/zip"/>
+		<mkdir dir="${build.dir}/js"/>		
+        <copy todir="${build.dir}/${dist.package.name}">
+            <fileset dir=".">
+                <include name="ant.properties"/>
+                <include name="build.xml"/>
+                <include name="demo/**/*"/>
+                <include name="js/**/*"/>
+                <include name="logo/**/*"/>
+				<include name="tests/**/*"/>
+                <exclude name="**/.svn"/>
+            </fileset>
+        </copy>
+		<copy todir="${build.dir}/js">
+            <fileset dir="js">
+				<include name="**/*.js"/>
+				<exclude name="**/*min.js"/>
+			</fileset>
+			<globmapper from="*" to="${js.name}"/>
+        </copy>
+		<copy todir="${build.dir}/js">
+            <fileset dir="js">
+				<include name="**/*-min.js"/>
+			</fileset>
+			<globmapper from="*" to="${js.min.name}"/>
+        </copy>
+        <zip destfile="${build.dir}/zip/${dist.package.name}.zip"
+             basedir="${build.dir}"
+             includes="${dist.package.name}/**/*"/>
+    </target>
+
+</project>
