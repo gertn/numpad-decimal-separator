@@ -1,1 +1,0 @@
-java -jar ..\yuicompressor-2.4.2\build\yuicompressor-2.4.2.jar .\js\jquery.numpadDecSeparator.js --charset utf-8 -o .\js\jquery.numpadDecSeparator-min.js

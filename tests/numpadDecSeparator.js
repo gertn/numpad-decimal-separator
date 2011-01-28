@@ -79,7 +79,7 @@ module("setup for readonly", {
 test("test with readonly input", function() {
 	var data = $("#testInput").data('numpadDecSeparator');
 	ok(!data, "a readonly input should have no data");
-	equal($("#testInput").val(),"")
+	equal($("#testInput").val(),"");
 });
 
 module("setup seperator option space", {
