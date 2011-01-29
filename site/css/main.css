@@ -34,6 +34,7 @@ h1,h2,h3,h4,h5,h6,strong {
 
 p, a, footer, label {
 	font-size: 0.83em;
+	margin: 5px 0;
 }
 
 html,body {
@@ -47,7 +48,7 @@ body {
 	background-color: #d3d7cf;
 }
 
-label, input {
+input {
 	margin: 5px;
 }
 
@@ -145,8 +146,8 @@ header nav {
 	margin-right: 12px;
 }
 
-header nav a:hover {
-	color: #26b3f7;
+header#logo nav a:hover, footer#footer nav a:hover, #issues a:hover {
+	color: blue;
 }
 
 /*maincol*/
@@ -189,7 +190,7 @@ header nav a:hover {
 	padding: 4px;
 }
 
-#nav p#donate {
+#nav #donate p {
 	margin-bottom: 5px;
 }
 

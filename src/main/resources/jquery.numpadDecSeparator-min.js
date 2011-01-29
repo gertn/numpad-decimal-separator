@@ -10,6 +10,7 @@ l.preventDefault()
 i.unbind(".numpadDecSeparator");
 i.removeData("numpadDecSeparator")
 })
+},version:function(){return"1.0.2"
 }};
 e.fn.numpadDecSeparator=function(h){var i;
 if(a[h]){return a[h].apply(this,Array.prototype.slice.call(arguments,1))

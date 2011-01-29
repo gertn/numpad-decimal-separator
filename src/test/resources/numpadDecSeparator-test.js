@@ -1,3 +1,10 @@
+var version = "1.0.2";
+
+TestCase("VersionTestCase", {
+	testNumpadDecSeparatorShouldReturnCorrectVersion : function() {
+		assertEquals("Version should be correct", version , $.fn.numpadDecSeparator('version'));
+	}
+});
 TestCase("DefaultOptionTestCase", {
 	setUp: function() {
 		addInputToDOM('testInput');

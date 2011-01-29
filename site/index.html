@@ -7,6 +7,7 @@
 <head>
 	<title>numpad-decimal-separator - demo</title>
 	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
 	<link type="text/css" rel="stylesheet" href="css/html5reset-1.6.1.css" />
 	<link type="text/css" rel="stylesheet" href="css/shCore.css"/>
 	<link type="text/css" rel="stylesheet" href="css/shThemeDefault.css"/>
@@ -14,8 +15,8 @@
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 	<script src="js/shCore.js"></script>
 	<script src="js/shBrushJScript.js"></script>
-	<script src="../src/main/resources/jquery-1.4.4.min.js"></script>
-	<script src="../src/main/resources/jquery.numpadDecSeparator.js"></script>
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.numpadDecSeparator-1.0.2.js"></script>
 	<script src="js/jquery-ui-1.8.7.custom.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -31,30 +32,44 @@
 			$("#unbindButton").click(function(){
 				$(".unbind").numpadDecSeparator('unbind').val("").first().focus();
 			});
+			$("#version").text($.fn.numpadDecSeparator('version'));
 		});
 		function addInput(){
 			$('<input type="text" id="amount3" class="add" />').appendTo('#addInput');
 			$(".add").numpadDecSeparator();
 		}
-	</script>	
+	</script>
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-20779811-4']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
 </head>
 <body>
 	<div id="wrapper" >
 		<header id="logo" class="ui-helper-clearfix ui-widget-content ui-corner-top">
-			<img src="../logo/logo.png"  width="50" height="50">
+			<img src="logo/logo.png"  width="50" height="50">
 			<div id="headerTitle"  >
 				<h1>numpadDecSeparator - demo</h1>
-				<h5>Numpad decimal separator plugin for jQuery</h5>
+				<h5>Numpad decimal separator plugin for jQuery - version <span id="version"></span></h5>
 			</div>
 			<nav>
-				<a href="http://code.google.com/p/numpad-decimal-separator">home</a>
+				<a href="http://code.google.com/p/numpad-decimal-separator">home @ code google</a>
 			</nav>
 		</header>
 		<div id="content" class="ui-helper-clearfix ui-widget-content">
 			<div id="maincol" class="ui-helper-clearfix">
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
-						<h3>Example 1: Comma as numpad decimal separator - default</h3>
+						<h3>Example 1: Comma as numpad decimal separator - Default</h3>
 					</header>
 					<h4>Usage example</h4>
 					<pre class="brush: js;">
@@ -126,7 +141,7 @@
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
-						<h3>Example 5: unbind</h3>
+						<h3>Example 5: Unbind</h3>
 					</header>
 					<h4>Usage example</h4>
 					<pre class="brush: js;">
@@ -144,14 +159,25 @@
 					<input type="text" id="unbind" class="unbind" /><input type="text" class="unbind" />
 					<input type="button" id="unbindButton" value="unbind" />
 				</section>
+				<section id="issues"> 
+					<header class="ui-widget-header ui-corner-all">
+						<h3>Issues, enhancement request or comments?</h3>
+					</header>
+					<h4>Issues - enhancement request</h4>
+					<p>If you find any issues or if you have an enhancement request, please post them on <a href="http://code.google.com/p/numpad-decimal-separator/issues/list">http://code.google.com/p/numpad-decimal-separator/issues/list</a>.</p>
+					<h4>Comments</h4>
+					<p>If you have comments, feel free to <a href="mailto:nuyensgert@gmail.com?SUBJECT=numpadDecSeparator">contact me</a>!</p>
+				</section>
 				
 			</div>
 			<nav id="nav">
-				<section class="ui-widget-content ui-corner-all">
+				<section id="donate" class="ui-widget-content ui-corner-all">
 					<header class="ui-widget-header ui-corner-top">
 						<h3>Donate</h3>
 					</header>
-					<p id="donate"><strong>You like this plugin? Please feel free to donate any amount you like!</strong></p>
+					<p><strong>You like this plugin?</strong></p>
+					<p><strong>Please feel free to donate any amount you like!</strong></p>
+					<p>This will help to cover the costs of development and hosting.</p>
 					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TEDR86ZYP3UR8&lc=BE&item_name=numpad%2ddecimal%2dseparator&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted"><img src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif"/></a>
 				</section>
 			</nav>
@@ -159,7 +185,14 @@
 		<footer id="footer" class="ui-widget-content ui-corner-bottom">
 			<p>This plugin is written according to TDD (test-driven development) and is tested with QUnit and JsTestDriver.</p>
 			<p>It is build with maven and eclipse.</p>
+			<nav>
+				<a href="http://code.google.com/p/numpad-decimal-separator">home @ code google</a>
+				<span> - </span>
+				<a href="http://plugins.jquery.com/project/numpadDecSeparator">numpadDecSeparator @ jQuery plugin site</a>
+				<span> - </span>
+				<a href="mailto:nuyensgert@gmail.com?SUBJECT=numpadDecSeparator">contact me</a>
+			</nav>
 		</footer>
-	</div>	
+	</div>
 </body>
 </html>

@@ -3,8 +3,13 @@ numpadDecSeparator changelog
 If there are any issues or if you have comments, please post them on:
 http://code.google.com/p/numpad-decimal-separator/
 
-Changes in version 1.0.1
+Changes in version 1.0.2
 ------------------------
+Added method version.
+Refactored demo.
+
+Changes in version 1.0.1 29/01/2010
+-----------------------------------
 Minor changes to js code.
 Refactored project to use eclipse with: 
  - m2eclipse plugin (maven)
