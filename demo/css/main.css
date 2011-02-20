@@ -16,7 +16,7 @@ h4 {
 	margin: 5px 0;
 }
 
-h5 {
+h5, #toolbar {
 	font-size: 0.83em;
 }
 
@@ -39,13 +39,12 @@ p, a, footer, label {
 
 html,body {
 	text-align: center;
-	font-family: Verdana, Geneva, Kalimati, sans-serif;
-	/*font-family: Arial, Helvetica, sans-serif;*/
 }
 
 body {
 	/*background:#ffffff url('../images/body_bg.png') repeat-x left top;*/
 	background-color: #d3d7cf;
+	font: 14px Verdana, Geneva, Kalimati, sans-serif;
 }
 
 input {
@@ -88,6 +87,16 @@ input {
 	padding: 4px;
 }
 
+.li-icon {
+	float: left;
+	background-color: #555555;
+	margin-right: 4px;
+}
+
+.info {
+	border-bottom:1px dotted #555555; 
+}
+
 /* header*/
 header#logo {
 	margin-top: 5px;
@@ -105,6 +114,10 @@ header#logo img {
 	position: absolute;
 	top: -8px;
 	left: 0;
+}
+
+#toolbar {
+	padding: 10px 4px;
 }
 
 .ui-widget-header, header#logo h1 {
@@ -143,10 +156,10 @@ header#logo img {
 
 header nav {
 	float: right;
-	margin-right: 12px;
+	margin: 10px;
 }
 
-header#logo nav a:hover, footer#footer nav a:hover, #issues a:hover {
+footer#footer nav a:hover, #issues a:hover {
 	color: blue;
 }
 

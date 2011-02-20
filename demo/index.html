@@ -33,6 +33,13 @@
 				$(".unbind").numpadDecSeparator('unbind').val("").first().focus();
 			});
 			$("#version").text($.fn.numpadDecSeparator('version'));
+			$( "#home" ).button({
+				text: true,
+				icons: {
+					primary: "ui-icon-home"
+				}
+			});
+			$( "#jqHome" ).button();
 		});
 		function addInput(){
 			$('<input type="text" id="amount3" class="add" />').appendTo('#addInput');
@@ -62,11 +69,21 @@
 				<h5>Numpad decimal separator plugin for jQuery - version <span id="version"></span></h5>
 			</div>
 			<nav>
-				<a href="http://code.google.com/p/numpad-decimal-separator">home @ code google</a>
+				<span id="toolbar">
+					<a id="home" href="http://code.google.com/p/numpad-decimal-separator">code google</a>
+					<a id="jqHome" href="http://plugins.jquery.com/project/numpadDecSeparator">jQuery plugin site</a>
+				</span>
 			</nav>
 		</header>
 		<div id="content" class="ui-helper-clearfix ui-widget-content">
 			<div id="maincol" class="ui-helper-clearfix">
+				<section> 
+					<header class="ui-widget-header ui-corner-all">
+						<h3>Intro</h3>
+					</header>
+					<p>With this jQuery plugin you can configure what character to use for the <span class="info" title="numeric keypad">numpad</span> decimal separator.</p>
+					<p>The examples below show you how to use the plugin.</p> 
+				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
 						<h3>Example 1: Comma as numpad decimal separator - Default</h3>
@@ -80,7 +97,7 @@
 					&lt;input type="text" id="default" /&gt;
 					</pre>
 					<input type="text" id="default" /> 
-					<label for="default">'150.00' will output '150,00'</label>
+					<label for="default">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span> will output '150,00'</label>
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
@@ -95,7 +112,7 @@
 					&lt;input type="text" id="space" /&gt;
 					</pre>
 					<input type="text" id="space" />
-					<label for="default">'150.00' will output '150 00'</label>
+					<label for="default">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will output '150 00'</label>
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
@@ -113,7 +130,7 @@
 					&lt;input type="text" id="regional" /&gt;
 					</pre>
 					<input type="text" id="regional" /> 
-					<label for="regional">'150.00' will for example output '150,00'- according to regional setting of os</label>
+					<label for="regional">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will for example output '150,00' - according to regional setting of os</label>
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
@@ -155,22 +172,52 @@
 					&lt;input type="text" class="unbind" /&gt;
 					&lt;input type="button" id="unbindButton" value="unbind" /&gt;
 					</pre>
-					<p>before unbind '150.00' will output '150 00', after unbind will output '150.00'</p>
+					<p>before unbind typing '150.00' with the <span class="info" title="numeric keypad">numpad</span> will output '150 00', after unbind it will output '150.00'</p>
 					<input type="text" id="unbind" class="unbind" /><input type="text" class="unbind" />
 					<input type="button" id="unbindButton" value="unbind" />
 				</section>
 				<section id="issues"> 
 					<header class="ui-widget-header ui-corner-all">
-						<h3>Issues, enhancement request or comments?</h3>
+						<h3>Issues, enhancement requests or comments?</h3>
 					</header>
-					<h4>Issues - enhancement request</h4>
-					<p>If you find any issues or if you have an enhancement request, please post them on <a href="http://code.google.com/p/numpad-decimal-separator/issues/list">http://code.google.com/p/numpad-decimal-separator/issues/list</a>.</p>
+					<h4>Issues - enhancement requests</h4>
+					<p>If you find an issue or if you have an enhancement request, please post them on <a href="http://code.google.com/p/numpad-decimal-separator/issues/list">http://code.google.com/p/numpad-decimal-separator/issues/list</a>.</p>
 					<h4>Comments</h4>
 					<p>If you have comments, feel free to <a href="mailto:nuyensgert@gmail.com?SUBJECT=numpadDecSeparator">contact me</a>!</p>
 				</section>
-				
 			</div>
 			<nav id="nav">
+				<section id="download" class="ui-widget-content ui-corner-all">
+					<header class="ui-widget-header ui-corner-top">
+						<h3>Download</h3>
+					</header>
+					<ul>
+						<li>
+							<a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-1.0.1.js"  title="Download jquery.numpadDecSeparator-1.0.1.js">
+		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
+		 						version 1.0.1
+		 					</a>
+						</li>
+						<li>
+							<a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-1.0.1-min.js"  title="Download jquery.numpadDecSeparator-1.0.1-min.js [yuicompressor-2.4.2]">
+		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
+		 						version 1.0.1-min
+		 					</a>
+						</li>
+						<li>
+							<a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-1.0.1.zip"  title="Download jquery.numpadDecSeparator-1.0.1.zip [contains whole project including tests...]">
+		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
+		 						version 1.0.1-zip
+		 					</a>
+						</li>
+						<li>
+							<a href="http://code.google.com/p/numpad-decimal-separator/downloads/list"  title="Download previous versions...">
+		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
+		 						previous versions...
+		 					</a>
+						</li>
+					</ul>
+				</section>
 				<section id="donate" class="ui-widget-content ui-corner-all">
 					<header class="ui-widget-header ui-corner-top">
 						<h3>Donate</h3>

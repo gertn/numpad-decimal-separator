@@ -2095,6 +2095,14 @@
          stdDeviation="0.75726269"
          id="feGaussianBlur5096" />
     </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter5440">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.75733505"
+         id="feGaussianBlur5442" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -2103,9 +2111,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-65.925074"
-     inkscape:cy="136.30709"
+     inkscape:zoom="1.4"
+     inkscape:cx="-305.65079"
+     inkscape:cy="-44.128405"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      gridtolerance="10000"
@@ -2135,6 +2143,67 @@
      inkscape:label="v"
      style="opacity:1;display:inline"
      transform="translate(-985.11371,-152.19098)">
+    <g
+       inkscape:export-filename="D:\PrivateWS\jQueryPluginsWS\numpadDecimalSeparator\logo\logo_shadow.png"
+       inkscape:export-ydpi="168"
+       inkscape:export-xdpi="168"
+       id="g5412"
+       style="opacity:0.34831459;filter:url(#filter5440)"
+       transform="translate(1.176033,1.1760334)">
+      <rect
+         rx="4.7705498"
+         ry="4.7543411"
+         y="472.50626"
+         x="1020.8111"
+         height="40.245304"
+         width="35.480965"
+         id="rect5414"
+         style="fill:#555753;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         inkscape:export-filename="D:\PrivateWS\jQueryPluginsWS\numpadDecimalSeperator\logo\numpad.png"
+         inkscape:export-xdpi="168.1261"
+         inkscape:export-ydpi="168.1261" />
+      <text
+         xml:space="preserve"
+         style="font-size:10.00112152px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         x="1026.7601"
+         y="504.80554"
+         id="text5416"
+         sodipodi:linespacing="100%"
+         transform="scale(1.0017033,0.9982996)"
+         inkscape:export-filename="D:\PrivateWS\jQueryPluginsWS\numpadDecimalSeperator\logo\numpad.png"
+         inkscape:export-xdpi="168.1261"
+         inkscape:export-ydpi="168.1261"><tspan
+           sodipodi:role="line"
+           id="tspan5418"
+           x="1026.7601"
+           y="504.80554"
+           style="font-style:italic;fill:#ffffff;fill-opacity:1">del</tspan></text>
+      <text
+         transform="scale(1.0017033,0.9982996)"
+         sodipodi:linespacing="100%"
+         id="text5420"
+         y="484.58124"
+         x="1026.0161"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+         xml:space="preserve"
+         inkscape:export-filename="D:\PrivateWS\jQueryPluginsWS\numpadDecimalSeperator\logo\numpad.png"
+         inkscape:export-xdpi="168.1261"
+         inkscape:export-ydpi="168.1261"><tspan
+           y="484.58124"
+           x="1026.0161"
+           id="tspan5422"
+           sodipodi:role="line">.</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path5424"
+         d="m 1052.7298,473.55705 c 0.4459,0.70438 0.7188,1.5397 0.7188,2.4375 l 0,29.5 c 0,2.52786 -2.0573,4.5625 -4.5938,4.5625 l -24.9062,0 c -0.6102,0 -1.1874,-0.0984 -1.7188,-0.3125 0.812,1.26581 2.2494,2.09375 3.875,2.09375 l 24.9063,0 c 2.5364,0 4.5625,-2.03464 4.5625,-4.5625 l 0,-29.5 c 0,-1.91964 -1.1663,-3.54288 -2.8438,-4.21875 z"
+         style="opacity:0.72659176;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4886)" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5426"
+         d="m 1025.6896,472.49902 c -2.5099,0 -4.5312,2.02991 -4.5312,4.53125 l 0,29.1875 c 0,1.98128 1.288,3.63899 3.0625,4.25 -0.3374,-0.6324 -0.5625,-1.35613 -0.5625,-2.125 l 0,-29.1875 c 0,-2.50134 2.0213,-4.5 4.5312,-4.5 l 24.6563,0 c 0.5218,0 1.0029,0.0896 1.4687,0.25 -0.7601,-1.42498 -2.2304,-2.40625 -3.9687,-2.40625 l -24.6563,0 z"
+         style="opacity:0.38951308;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4895)" />
+    </g>
     <text
        xml:space="preserve"
        style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Webdings;-inkscape-font-specification:Webdings"
@@ -2150,7 +2219,8 @@
        id="g5135"
        inkscape:export-xdpi="168"
        inkscape:export-ydpi="168"
-       inkscape:export-filename="D:\PrivateWS\jQueryPluginsWS\numpadDecimalSeparator\site\logo\logo.png">
+       inkscape:export-filename="D:\PrivateWS\jQueryPluginsWS\numpadDecimalSeparator\logo\logo_shadow.png"
+       transform="translate(0.35714286,0.35714286)">
       <rect
          inkscape:export-ydpi="168.1261"
          inkscape:export-xdpi="168.1261"
