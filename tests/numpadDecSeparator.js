@@ -82,6 +82,42 @@ test("test with readonly input", function() {
 	equal($("#testInput").val(),"");
 });
 
+module("setup seperator option SPACE", {
+	setup: function() {
+		$("#testInput").numpadDecSeparator({separator: 'SPACE'});
+		$("#testInput").focus();
+		triggerNumpadDecimalSeperator($("#testInput"));
+	}
+});
+
+test("test with seperator option as SPACE", function() {
+	assertSpacePresent($("#testInput"));
+});
+
+module("setup seperator option COMMA", {
+	setup: function() {
+		$("#testInput").numpadDecSeparator({separator: 'COMMA'});
+		$("#testInput").focus();
+		triggerNumpadDecimalSeperator($("#testInput"));
+	}
+});
+
+test("test with seperator option as COMMA", function() {
+	assertCommaPresent($("#testInput"));
+});
+
+module("setup seperator option APOSTROPHE and predifinedVariables", {
+	setup: function() {
+		$("#testInput").numpadDecSeparator({separator: 'APOSTROPHE', predefinedVariables: {'APOSTROPHE': "'"}});
+		$("#testInput").focus();
+		triggerNumpadDecimalSeperator($("#testInput"));
+	}
+});
+
+test("test with seperator option as APOSTROPHE", function() {
+	same($("#testInput").val(), "'", "assert that numpad separator is comma");
+});
+
 module("setup seperator option space", {
 	setup: function() {
 		$("#testInput").numpadDecSeparator({separator: ' '});

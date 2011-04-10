@@ -1,4 +1,4 @@
-var version = "1.0.2";
+var version = "1.1.1";
 
 TestCase("VersionTestCase", {
 	testNumpadDecSeparatorShouldReturnCorrectVersion : function() {
@@ -84,6 +84,42 @@ TestCase("SeparatorOptionTestCase", {
 	},
 	testSeperatorOptionAsSpace : function() {
 		assertSpacePresent($("#testInput"));
+	}
+});
+
+TestCase("SeparatorOptionWithPredifinedSPACEVariableTestCase", {
+	setUp: function() {
+		addInputToDOM('testInput');
+		$("#testInput").numpadDecSeparator({separator: 'SPACE'});
+		$("#testInput").focus();
+		triggerNumpadDecimalSeperator($("#testInput"));
+	},
+	testSeperatorOptionAsSPACE : function() {
+		assertSpacePresent($("#testInput"));
+	}
+});
+
+TestCase("SeparatorOptionWithPredifinedCOMMAVariableTestCase", {
+	setUp: function() {
+		addInputToDOM('testInput');
+		$("#testInput").numpadDecSeparator({separator: 'COMMA'});
+		$("#testInput").focus();
+		triggerNumpadDecimalSeperator($("#testInput"));
+	},
+	testSeperatorOptionAsCOMMA : function() {
+		assertCommaPresent($("#testInput"));
+	}
+});
+
+TestCase("SeparatorOptionWithCustomPredifinedAPOSTROPHEVariableTestCase", {
+	setUp: function() {
+		addInputToDOM('testInput');
+		$("#testInput").numpadDecSeparator({separator: 'APOSTROPHE', predefinedVariables: {'APOSTROPHE': "'"}});
+		$("#testInput").focus();
+		triggerNumpadDecimalSeperator($("#testInput"));
+	},
+	testSeperatorOptionAsAPOSTROPHE : function() {
+		assertEquals("numpad separator should be APOSTROPHE", "'", $("#testInput").val());
 	}
 });
 

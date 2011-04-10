@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>com.google.jstestdriver</groupId>
 			<artifactId>maven-jstestdriver-plugin</artifactId>
-			<version>1.2.2-SNAPSHOT</version>
+			<version>1.3.2.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -65,9 +65,9 @@
 							<outputDirectory>src/main/resources</outputDirectory>
 							<encoding>UTF-8</encoding>
 							<excludes>
-							  <exclude>**/*min.js</exclude>
+								<exclude>**/*min.js</exclude>
 							</excludes>
-				        </configuration>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -102,7 +102,7 @@
 									<port>4225</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver-min.conf</config>
+									<config>${basedir}/src/jsTestDriver-min.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -116,7 +116,7 @@
 									<port>4225</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver-min.conf</config>
+									<config>${basedir}/src/jsTestDriver-min.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -130,7 +130,7 @@
 									<port>4225</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver-min.conf</config>
+									<config>${basedir}/src/jsTestDriver-min.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -144,7 +144,7 @@
 									<port>4225</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver-min.conf</config>
+									<config>${basedir}/src/jsTestDriver-min.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -158,7 +158,7 @@
 									<port>4225</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver-min.conf</config>
+									<config>${basedir}/src/jsTestDriver-min.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -172,7 +172,7 @@
 									<port>4224</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver.conf</config>
+									<config>${basedir}/src/jsTestDriver.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -186,7 +186,7 @@
 									<port>4224</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver.conf</config>
+									<config>${basedir}/src/jsTestDriver.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -200,7 +200,7 @@
 									<port>4224</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver.conf</config>
+									<config>${basedir}/src/jsTestDriver.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -214,7 +214,7 @@
 									<port>4224</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver.conf</config>
+									<config>${basedir}/src/jsTestDriver.conf</config>
 								</configuration>
 							</execution>
 							<execution>
@@ -228,7 +228,44 @@
 									<port>4224</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
-									<config>src/jsTestDriver.conf</config>
+									<config>${basedir}/src/jsTestDriver.conf</config>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>jstests-ff</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.4.2</version>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>com.google.jstestdriver</groupId>
+						<artifactId>maven-jstestdriver-plugin</artifactId>
+						<version>1.2.2-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<id>run-tests-firefox</id>
+								<phase>test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<browser>${firefox.path}</browser>
+									<port>4224</port>
+									<basePath>src</basePath>
+									<testOutput>target/testReports</testOutput>
+									<config>${basedir}/src/jsTestDriver.conf</config>
 								</configuration>
 							</execution>
 						</executions>
@@ -251,7 +288,7 @@
 				<opera.path>"C:\Program Files (x86)\Opera\opera.exe"</opera.path>
 				<browsers.path>${firefox.path},${ie.path},${chrome.path},${safari.path},${opera.path}</browsers.path>
 			</properties>
-		</profile>		
+		</profile>
 	</profiles>
 
 	<repositories>

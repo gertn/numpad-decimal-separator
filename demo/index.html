@@ -16,7 +16,7 @@
 	<script src="js/shCore.js"></script>
 	<script src="js/shBrushJScript.js"></script>
 	<script src="js/jquery-1.4.4.min.js"></script>
-	<script src="js/jquery.numpadDecSeparator-1.0.2.js"></script>
+	<script src="js/jquery.numpadDecSeparator-1.1.1.js"></script>
 	<script src="js/jquery-ui-1.8.7.custom.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,10 +40,36 @@
 				}
 			});
 			$( "#jqHome" ).button();
+			buildDownloads();
 		});
 		function addInput(){
 			$('<input type="text" id="amount3" class="add" />').appendTo('#addInput');
 			$(".add").numpadDecSeparator();
+		}
+		function buildDownloads(){
+			$('#downloads').html(buildDownloadLinks);
+		}
+		
+		function buildDownloadLinks(){
+			return addDownloadLink('.js', '', '') + 
+					addDownloadLink('-min.js', '-min', '[yuicompressor-2.4.2]') + 
+					addDownloadLink('.zip', '-zip', '[contains whole project including tests...]') + 
+					previousVersionsLink();
+		}
+		
+		function addDownloadLink(suffix, type, extra) {
+		  return '<li><a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-' + getSuffixFile(suffix) + 
+					'"  title="Download jquery.numpadDecSeparator-' + getSuffixFile(suffix) + ' ' + extra  + '"><span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>version ' + 
+					$.fn.numpadDecSeparator('version') + type + '</a>';
+		}
+		function previousVersionsLink() {
+		  return '<li><a href="http://code.google.com/p/numpad-decimal-separator/downloads/list"  title="Download previous versions...">' +
+				'<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>' +
+				'previous versions...</a></li>';
+		}
+		
+		function getSuffixFile(type){
+			return $.fn.numpadDecSeparator('version') + type;
 		}
 	</script>
 	<script type="text/javascript">
@@ -191,31 +217,7 @@
 					<header class="ui-widget-header ui-corner-top">
 						<h3>Download</h3>
 					</header>
-					<ul>
-						<li>
-							<a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-1.0.1.js"  title="Download jquery.numpadDecSeparator-1.0.1.js">
-		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
-		 						version 1.0.1
-		 					</a>
-						</li>
-						<li>
-							<a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-1.0.1-min.js"  title="Download jquery.numpadDecSeparator-1.0.1-min.js [yuicompressor-2.4.2]">
-		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
-		 						version 1.0.1-min
-		 					</a>
-						</li>
-						<li>
-							<a href="http://numpad-decimal-separator.googlecode.com/files/jquery.numpadDecSeparator-1.0.1.zip"  title="Download jquery.numpadDecSeparator-1.0.1.zip [contains whole project including tests...]">
-		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
-		 						version 1.0.1-zip
-		 					</a>
-						</li>
-						<li>
-							<a href="http://code.google.com/p/numpad-decimal-separator/downloads/list"  title="Download previous versions...">
-		 						<span class="ui-icon ui-icon-arrowreturnthick-1-s ui-corner-all li-icon"></span>
-		 						previous versions...
-		 					</a>
-						</li>
+					<ul id="downloads">
 					</ul>
 				</section>
 				<section id="donate" class="ui-widget-content ui-corner-all">
