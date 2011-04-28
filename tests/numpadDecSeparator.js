@@ -106,15 +106,15 @@ test("test with seperator option as COMMA", function() {
 	assertCommaPresent($("#testInput"));
 });
 
-module("setup seperator option APOSTROPHE and predifinedVariables", {
+module("setup seperator option apostrophe", {
 	setup: function() {
-		$("#testInput").numpadDecSeparator({separator: 'APOSTROPHE', predefinedVariables: {'APOSTROPHE': "'"}});
+		$("#testInput").numpadDecSeparator({separator: '\''});
 		$("#testInput").focus();
 		triggerNumpadDecimalSeperator($("#testInput"));
 	}
 });
 
-test("test with seperator option as APOSTROPHE", function() {
+test("test with seperator option as apostrophe", function() {
 	same($("#testInput").val(), "'", "assert that numpad separator is comma");
 });
 
@@ -146,6 +146,38 @@ test("test unbind", function() {
 	triggerNumpadDecimalSeperator($("#testInput"));
 	var valueAfterUnbind = $("#testInput").val();
 	notEqual(valueAfterUnbind, " ", "assert that after unbind numpad separator is not space");
+});
+
+module("setup for mergeDefaults", {
+});
+
+test("test merge seperator", function() {
+	var pdv = $.fn.numpadDecSeparator.defaults['predefinedVariables'];
+	$.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
+	same($.fn.numpadDecSeparator.defaults['separator'], "SPACE", "merged default separator should be SPACES");
+	ok(!$.fn.numpadDecSeparator.defaults['useRegionalSettings'], "merged default useRegionalSettings should remain false");
+	same($.fn.numpadDecSeparator.defaults['predefinedVariables'], pdv, "merged default predefinedVariables should be the same as before merge");
+});
+
+test("test merge useRegionalSettings", function() {
+	$.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
+	ok($.fn.numpadDecSeparator.defaults['useRegionalSettings'], "merged default useRegionalSettings should be true");
+});
+
+test("test merge predefinedVariables", function() {
+	var pdvApos = {APOSTROPHE: "'"};
+	$.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: pdvApos});
+	same($.fn.numpadDecSeparator.defaults['predefinedVariables'], pdvApos, "merged default predefinedVariables should be APOSTROPHE");
+});
+
+test("test merge all", function() {
+	var newDefaults = {
+		separator : ' ',
+		useRegionalSettings : true,
+		predefinedVariables: {SPACE: " "}
+	};
+	$.fn.numpadDecSeparator('mergeDefaults', newDefaults);
+	same($.fn.numpadDecSeparator.defaults, newDefaults, "all defaults should be merged");
 });
 
 //this only works in msie and mozilla and regional settings of OS set to nl or equivalent (where decimal seperator is comma)

@@ -4,8 +4,10 @@
  * With this jQuery plugin you can configure what character to use for the numpad decimal separator.
  * 
  * @author Gert Nuyens
- * @version 1.1.1 Dual licensed under the MIT (MIT-LICENSE.txt) or GPL Version 2
- *          licenses (GPL-LICENSE.txt).
+ * @version 1.1.2 
+ * 
+ * Dual licensed under the MIT (MIT-LICENSE.txt) 
+ * 	or GPL Version 2 licenses (GPL-LICENSE.txt).
  * 
  * Dependencies: - jQuery (http://jquery.com)
  * 
@@ -21,25 +23,33 @@
  * 	3) predefinedVariables: the default predifined variables are:
  * 		- SPACE => will output space
  * 		- COMMA => will output comma
- * 		You can provide your own predifined variables e.g. predefinedVariables: {APOSTROPHE: "'"}
  * - numpadDecSeparator('unbind') this function will unbind the numpadDecSeparator
- * - numpadDecSeparator('version') static function which returns the current version
+ * - numpadDecSeparator('version') static function which returns the current version of the plugin
+ * - numpadDecSeparator('mergeDefaults') static function:
+ * 		with this function you can override some or all the default options, the provided options will be
+ * 		merged with the default options
  * 
  * Examples: 
  * $(".amount").numpadDecSeparator();
- * $(".amount").numpadDecSeparator({separator: ','});
- * $(".amount").numpadDecSeparator({separator: 'SPACE'});
- * $(".amount").numpadDecSeparator({separator: 'APOSTROPHE', predefinedVariables: {'APOSTROPHE': "'"}});
+ * $(".amount").numpadDecSeparator({separator: ','}); this is the same as $(".amount").numpadDecSeparator({separator: 'COMMA'});
+ * $(".amount").numpadDecSeparator({separator: ' '}); this is the same as $(".amount").numpadDecSeparator({separator: 'SPACE'});
  * $(".amount").numpadDecSeparator({useRegionalSettings: true});
+ * 
  * $(".amount").numpadDecSeparator('unbind');
+ * 
  * $.fn.numpadDecSeparator('version');
+ * 
+ * $.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
+ * $.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
+ * $.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: {APOSTROPHE: "'"}});
+ * var newDefaults = {
+ *	separator : ' ',
+ *	useRegionalSettings : true,
+ *	predefinedVariables: {SPACE: " "}
+ * };
+ * $.fn.numpadDecSeparator('mergeDefaults', newDefaults);
  **/
 (function($) {
-	var defaults = {
-		separator : ',',
-		useRegionalSettings : false,
-		predefinedVariables: {SPACE: " ", COMMA: ","}
-	};
 	var methods = {
 		init : function(options) {
 			return this.each(function() {
@@ -73,7 +83,10 @@
 			});
 		},
 		version : function() {
-			return "1.1.1";
+			return "1.1.2";
+		},
+		mergeDefaults : function(defaultsToMerge) {
+			$.extend($.fn.numpadDecSeparator.defaults, defaultsToMerge);
 		}
 	};
 	$.fn.numpadDecSeparator = function(methodOrOptions) {
@@ -84,14 +97,21 @@
 					.call(arguments, 1));
 		} else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
 			if (methodOrOptions) {
-				settings = $.extend({}, defaults, methodOrOptions);
+				settings = $.extend({}, $.fn.numpadDecSeparator.defaults, methodOrOptions);
 			}
-			return methods.init.call(this, settings ? settings : defaults);
+			return methods.init.call(this, settings ? settings : $.fn.numpadDecSeparator.defaults);
 		} else {
 			$.error('Method ' + methodOrOptions
 					+ ' does not exist on jQuery.numpadDecSeparator');
 		}
 	};
+	
+	$.fn.numpadDecSeparator.defaults = {
+		separator : ',',
+		useRegionalSettings : false,
+		predefinedVariables: {SPACE: " ", COMMA: ","}
+	};
+	
 	function _decimalSeparator() {
 		var n = 1.1;
 		n = n.toLocaleString().substring(1, 2);

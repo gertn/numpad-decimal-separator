@@ -3,6 +3,10 @@ numpadDecSeparator changelog
 If there are any issues or if you have comments, please post them on:
 http://code.google.com/p/numpad-decimal-separator/
 
+Changes in version 1.1.2 28/04/2011
+-----------------------------------
+Added static function mergeDefaults.
+
 Changes in version 1.1.1 10/04/2011
 -----------------------------------
 Added predifined variables (SPACE and COMMA).

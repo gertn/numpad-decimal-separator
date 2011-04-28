@@ -1,4 +1,4 @@
-var version = "1.1.1";
+var version = "1.1.2";
 
 TestCase("VersionTestCase", {
 	testNumpadDecSeparatorShouldReturnCorrectVersion : function() {
@@ -111,15 +111,15 @@ TestCase("SeparatorOptionWithPredifinedCOMMAVariableTestCase", {
 	}
 });
 
-TestCase("SeparatorOptionWithCustomPredifinedAPOSTROPHEVariableTestCase", {
+TestCase("SeparatorOptionWithApostropheVariableTestCase", {
 	setUp: function() {
 		addInputToDOM('testInput');
-		$("#testInput").numpadDecSeparator({separator: 'APOSTROPHE', predefinedVariables: {'APOSTROPHE': "'"}});
+		$("#testInput").numpadDecSeparator({separator: '\''});
 		$("#testInput").focus();
 		triggerNumpadDecimalSeperator($("#testInput"));
 	},
-	testSeperatorOptionAsAPOSTROPHE : function() {
-		assertEquals("numpad separator should be APOSTROPHE", "'", $("#testInput").val());
+	testSeperatorOptionAsApostrophe : function() {
+		assertEquals("numpad separator should be apostrophe", "'", $("#testInput").val());
 	}
 });
 
@@ -145,6 +145,34 @@ TestCase("UnbindTestCase", {
 		triggerNumpadDecimalSeperator($("#testInput"));
 		var valueAfterUnbind = $("#testInput").val();
 		assertNotEquals("assert that after unbind numpad separator is not space", " ", valueAfterUnbind);
+	}
+});
+
+TestCase("MergeDefaultsTestCase", {
+	testMergeSeparator : function() {
+		var pdv = $.fn.numpadDecSeparator.defaults['predefinedVariables'];
+		$.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
+		assertEquals("merged default separator should be SPACES", "SPACE", $.fn.numpadDecSeparator.defaults['separator']);
+		assertFalse("merged default useRegionalSettings should remain false", $.fn.numpadDecSeparator.defaults['useRegionalSettings']);
+		assertEquals("merged default predefinedVariables should be the same as before merge", pdv, $.fn.numpadDecSeparator.defaults['predefinedVariables']);
+	},
+	testMergeUseRegionalSettings : function() {
+		$.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
+		assertTrue("merged default useRegionalSettings should be true", $.fn.numpadDecSeparator.defaults['useRegionalSettings']);
+	},
+	testMergePredefinedVariables : function() {
+		var pdvApos = {APOSTROPHE: "'"};
+		$.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: pdvApos});
+		assertEquals("merged default predefinedVariables should be APOSTROPHE", pdvApos, $.fn.numpadDecSeparator.defaults['predefinedVariables']);
+	},
+	testMergeAll : function() {
+		var newDefaults = {
+			separator : ' ',
+			useRegionalSettings : true,
+			predefinedVariables: {SPACE: " "}
+		};
+		$.fn.numpadDecSeparator('mergeDefaults', newDefaults);
+		assertEquals("all defaults should be merged", newDefaults, $.fn.numpadDecSeparator.defaults);
 	}
 });
 

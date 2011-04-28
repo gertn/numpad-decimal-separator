@@ -16,7 +16,7 @@
 	<script src="js/shCore.js"></script>
 	<script src="js/shBrushJScript.js"></script>
 	<script src="js/jquery-1.4.4.min.js"></script>
-	<script src="js/jquery.numpadDecSeparator-1.1.1.js"></script>
+	<script src="js/jquery.numpadDecSeparator-1.1.2.js"></script>
 	<script src="js/jquery-ui-1.8.7.custom.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,6 +27,7 @@
 			$("#default").numpadDecSeparator();
 			$("#space").numpadDecSeparator({separator: ' '});
 			$("#regional").numpadDecSeparator({useRegionalSettings: true});
+			$("#predefinedVariable").numpadDecSeparator({separator: 'SPACE'});
 			$(".add").numpadDecSeparator();
 			$(".unbind").numpadDecSeparator({separator: ' '});
 			$("#unbindButton").click(function(){
@@ -132,17 +133,37 @@
 					<h4>Usage example</h4>
 					<pre class="brush: js;">
 					$(function(){
-					 $("#space").numpadDecSeparator({separator: ' '});
+					  $("#space").numpadDecSeparator({separator: ' '});
 					});
 					...
 					&lt;input type="text" id="space" /&gt;
 					</pre>
 					<input type="text" id="space" />
-					<label for="default">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will output '150 00'</label>
+					<label for="space">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will output '150 00'</label>
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
-						<h3>Example 3: Use regional setting of operating system as numpad decimal separator</h3>
+						<h3>Example 3: Use of predefined variables</h3>
+					</header>
+					<p>As separator option you can use one of the two default predefined variables (SPACE and COMMA).</p>
+					<p>SPACE => will output space.</p>
+					<p>COMMA => will output comma.</p>
+					<h4>Usage example</h4>
+					<pre class="brush: js;">
+					$(function(){
+					  $("#predefinedVariable").numpadDecSeparator({separator: 'SPACE'});
+					  // this is the same as 
+					  // $("#predefinedVariable").numpadDecSeparator({separator: ' '});	
+					});
+					...
+					&lt;input type="text" id="predefinedVariable" /&gt;
+					</pre>
+					<input type="text" id="predefinedVariable" />
+					<label for="predefinedVariable">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will output '150 00'</label>
+				</section>
+				<section> 
+					<header class="ui-widget-header ui-corner-all">
+						<h3>Example 4: Use regional setting of operating system as numpad decimal separator</h3>
 					</header>
 					<p>'150.00' will output '150,00' when regional setting is dutch belgium </p>
 					<p>'150.00' will output '150.00' when regional setting is english US </p>
@@ -160,7 +181,7 @@
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
-						<h3>Example 4: Adding fields dynamically</h3>
+						<h3>Example 5: Adding fields dynamically</h3>
 					</header>
 					<p>If you use the numpadDecSeparator in a dynamic environment as an ajax environment where you add fields on the fly you can use the following example as a guide.</p>
 					<h4>Usage example</h4>
@@ -184,7 +205,7 @@
 				</section>
 				<section> 
 					<header class="ui-widget-header ui-corner-all">
-						<h3>Example 5: Unbind</h3>
+						<h3>Example 6: Unbind</h3>
 					</header>
 					<h4>Usage example</h4>
 					<pre class="brush: js;">
@@ -202,6 +223,30 @@
 					<input type="text" id="unbind" class="unbind" /><input type="text" class="unbind" />
 					<input type="button" id="unbindButton" value="unbind" />
 				</section>
+				<section> 
+					<header class="ui-widget-header ui-corner-all">
+						<h3>Example 7: Overriding default options</h3>
+					</header>
+					<h4>Usage examples</h4>
+					<pre class="brush: js;">
+					//override default separator
+					$.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
+					//or
+					//override default useRegionalSettings
+					$.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
+					//or
+					//override default predefinedVariables
+					$.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: {APOSTROPHE: "'"}});
+					//or
+					//override all defaults
+					var newDefaults = {
+						separator : " ",
+						useRegionalSettings : true,
+						predefinedVariables: {SPACE: " "}
+					 };
+					 $.fn.numpadDecSeparator('mergeDefaults', newDefaults);
+					</pre>
+				</section>				
 				<section id="issues"> 
 					<header class="ui-widget-header ui-corner-all">
 						<h3>Issues, enhancement requests or comments?</h3>
