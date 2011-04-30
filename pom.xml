@@ -5,7 +5,7 @@
 	<groupId>googlecode.com</groupId>
 	<artifactId>numpad-decimal-separator</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.1.2-SNAPSHOT</version>
 	<name>Numpad decimal separator plugin for jQuery</name>
 	<url>http://code.google.com/p/numpad-decimal-separator</url>
 
@@ -39,6 +39,47 @@
 	</build>
 
 	<profiles>
+		<profile>
+			<id>assemble</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<id>assembly-zip</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<finalName>jquery.numpadDecSeparator-${project.version}</finalName>
+									<appendAssemblyId>false</appendAssemblyId>
+									<descriptors>
+										<descriptor>src/assemble/assembler-zip.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+							<execution>
+								<id>assembly-src</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/dist</outputDirectory>
+									<appendAssemblyId>false</appendAssemblyId>
+									<descriptors>
+										<descriptor>src/assemble/assembler.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 			<id>compress</id>
 			<pluginRepositories>
@@ -281,12 +322,17 @@
 				</os>
 			</activation>
 			<properties>
-				<firefox.path>"C:\Program Files (x86)\Mozilla Firefox\firefox.exe"</firefox.path>
-				<ie.path>"C:\Program Files (x86)\Internet Explorer\iexplore.exe"</ie.path>
-				<chrome.path>"C:\Users\bkgen\AppData\Local\Google\Chrome\Application\chrome.exe"</chrome.path>
-				<safari.path>"C:\Program Files (x86)\Safari\Safari.exe"</safari.path>
+				<firefox.path>"C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+				</firefox.path>
+				<ie.path>"C:\Program Files (x86)\Internet Explorer\iexplore.exe"
+				</ie.path>
+				<chrome.path>"C:\Users\bkgen\AppData\Local\Google\Chrome\Application\chrome.exe"
+				</chrome.path>
+				<safari.path>"C:\Program Files (x86)\Safari\Safari.exe"
+				</safari.path>
 				<opera.path>"C:\Program Files (x86)\Opera\opera.exe"</opera.path>
-				<browsers.path>${firefox.path},${ie.path},${chrome.path},${safari.path},${opera.path}</browsers.path>
+				<browsers.path>${firefox.path},${ie.path},${chrome.path},${safari.path},${opera.path}
+				</browsers.path>
 			</properties>
 		</profile>
 	</profiles>
