@@ -9,12 +9,10 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=8" />
 	<link type="text/css" rel="stylesheet" href="css/html5reset-1.6.1.css" />
-	<link type="text/css" rel="stylesheet" href="css/shCore.css"/>
-	<link type="text/css" rel="stylesheet" href="css/shThemeDefault.css"/>
+	<link type="text/css" rel="stylesheet" href="css/prettify.css" />
 	<link type="text/css" rel="stylesheet" href="css/nf-theme/jquery-ui-1.8.7.custom.css" />
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
-	<script src="js/shCore.js"></script>
-	<script src="js/shBrushJScript.js"></script>
+	<script src="js/prettify.js"></script>
 	<script src="js/jquery-1.4.4.min.js"></script>
 	<script src="js/jquery.numpadDecSeparator.js"></script>
 	<script src="js/jquery-ui-1.8.7.custom.min.js"></script>
@@ -23,7 +21,8 @@
 	<![endif]-->
 	<script>
 		$(function(){
-			SyntaxHighlighter.all();
+			$("pre,code").addClass('prettyprint');		
+			prettyPrint();
 			$("#default").numpadDecSeparator();
 			$("#space").numpadDecSeparator({separator: ' '});
 			$("#regional").numpadDecSeparator({useRegionalSettings: true});
@@ -86,6 +85,7 @@
 	  })();
 	
 	</script>
+	
 </head>
 <body>
 	<div id="wrapper" >
@@ -116,12 +116,12 @@
 						<h3>Example 1: Comma as numpad decimal separator - Default</h3>
 					</header>
 					<h4>Usage example</h4>
-					<pre class="brush: js;">
-					$(function(){
-					 $("#default").numpadDecSeparator();
-					});
-					...
-					&lt;input type="text" id="default" /&gt;
+					<pre>
+$(function(){
+ $("#default").numpadDecSeparator();
+});
+...
+&lt;input type="text" id="default" /&gt;
 					</pre>
 					<input type="text" id="default" /> 
 					<label for="default">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span> will output '150,00'</label>
@@ -131,12 +131,12 @@
 						<h3>Example 2: Space as numpad decimal separator</h3>
 					</header>
 					<h4>Usage example</h4>
-					<pre class="brush: js;">
-					$(function(){
-					  $("#space").numpadDecSeparator({separator: ' '});
-					});
-					...
-					&lt;input type="text" id="space" /&gt;
+					<pre >
+$(function(){
+ $("#space").numpadDecSeparator({separator: ' '});
+});
+...
+&lt;input type="text" id="space" /&gt;
 					</pre>
 					<input type="text" id="space" />
 					<label for="space">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will output '150 00'</label>
@@ -149,14 +149,14 @@
 					<p>SPACE => will output space.</p>
 					<p>COMMA => will output comma.</p>
 					<h4>Usage example</h4>
-					<pre class="brush: js;">
-					$(function(){
-					  $("#predefinedVariable").numpadDecSeparator({separator: 'SPACE'});
-					  // this is the same as 
-					  // $("#predefinedVariable").numpadDecSeparator({separator: ' '});	
-					});
-					...
-					&lt;input type="text" id="predefinedVariable" /&gt;
+					<pre >
+$(function(){
+  $("#predefinedVariable").numpadDecSeparator({separator: 'SPACE'});
+  // this is the same as 
+  // $("#predefinedVariable").numpadDecSeparator({separator: ' '});	
+});
+...
+&lt;input type="text" id="predefinedVariable" /&gt;
 					</pre>
 					<input type="text" id="predefinedVariable" />
 					<label for="predefinedVariable">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will output '150 00'</label>
@@ -169,12 +169,12 @@
 					<p>'150.00' will output '150.00' when regional setting is english US </p>
 					<p><strong>This only works in firefox and IE7+!</strong></p>
 					<h4>Usage example</h4>
-					<pre class="brush: js;">
-					$(function(){
-					 $("#regional").numpadDecSeparator({useRegionalSettings: true});
-					});
-					...
-					&lt;input type="text" id="regional" /&gt;
+					<pre >
+$(function(){
+ $("#regional").numpadDecSeparator({useRegionalSettings: true});
+});
+...
+&lt;input type="text" id="regional" /&gt;
 					</pre>
 					<input type="text" id="regional" /> 
 					<label for="regional">typing '150.00' with the <span class="info" title="numeric keypad">numpad</span>  will for example output '150,00' - according to regional setting of os</label>
@@ -185,18 +185,18 @@
 					</header>
 					<p>If you use the numpadDecSeparator in a dynamic environment as an ajax environment where you add fields on the fly you can use the following example as a guide.</p>
 					<h4>Usage example</h4>
-					<pre class="brush: js;">
-					$(function(){
-					 $("#default").numpadDecSeparator();
-					});
-					function addInput(){
-					 $('&lt;input type="text" id="amount3" class="add" /&gt')
-					 		.appendTo('#addInput');
-					 $(".add").numpadDecSeparator();
-					}
-					...
-					&lt;input type="text" class="add" /&gt;
-					&lt;input type="button" value="add input" onclick="addInput();" /&gt;
+					<pre >
+$(function(){
+ $("#default").numpadDecSeparator();
+});
+function addInput(){
+ $('&lt;input type="text" id="amount3" class="add" /&gt')
+		.appendTo('#addInput');
+ $(".add").numpadDecSeparator();
+}
+...
+&lt;input type="text" class="add" /&gt;
+&lt;input type="button" value="add input" onclick="addInput();" /&gt;
 					</pre>
 					<input type="text" class="add" />
 					<input type="button" value="add input" onclick="addInput();" />
@@ -208,16 +208,16 @@
 						<h3>Example 6: Unbind</h3>
 					</header>
 					<h4>Usage example</h4>
-					<pre class="brush: js;">
-					$(function(){
-					 $(".unbind").numpadDecSeparator({separator: ' '});
-					 $("#unbindButton").click(function(){
-					   $(".unbind").numpadDecSeparator('unbind').val("").first().focus();
-					 });
-					});
-					...
-					&lt;input type="text" class="unbind" /&gt;
-					&lt;input type="button" id="unbindButton" value="unbind" /&gt;
+					<pre >
+$(function(){
+ $(".unbind").numpadDecSeparator({separator: ' '});
+ $("#unbindButton").click(function(){
+   $(".unbind").numpadDecSeparator('unbind').val("").first().focus();
+ });
+});
+...
+&lt;input type="text" class="unbind" /&gt;
+&lt;input type="button" id="unbindButton" value="unbind" /&gt;
 					</pre>
 					<p>before unbind typing '150.00' with the <span class="info" title="numeric keypad">numpad</span> will output '150 00', after unbind it will output '150.00'</p>
 					<input type="text" id="unbind" class="unbind" /><input type="text" class="unbind" />
@@ -228,23 +228,23 @@
 						<h3>Example 7: Overriding default options</h3>
 					</header>
 					<h4>Usage examples</h4>
-					<pre class="brush: js;">
-					//override default separator
-					$.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
-					//or
-					//override default useRegionalSettings
-					$.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
-					//or
-					//override default predefinedVariables
-					$.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: {APOSTROPHE: "'"}});
-					//or
-					//override all defaults
-					var newDefaults = {
-						separator : " ",
-						useRegionalSettings : true,
-						predefinedVariables: {SPACE: " "}
-					 };
-					 $.fn.numpadDecSeparator('mergeDefaults', newDefaults);
+					<pre >
+//override default separator
+$.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
+//or
+//override default useRegionalSettings
+$.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
+//or
+//override default predefinedVariables
+$.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: {APOSTROPHE: "'"}});
+//or
+//override all defaults
+var newDefaults = {
+	separator : " ",
+	useRegionalSettings : true,
+	predefinedVariables: {SPACE: " "}
+ };
+ $.fn.numpadDecSeparator('mergeDefaults', newDefaults);
 					</pre>
 				</section>				
 				<section id="issues"> 
@@ -267,12 +267,19 @@
 				</section>
 				<section id="donate" class="ui-widget-content ui-corner-all">
 					<header class="ui-widget-header ui-corner-top">
-						<h3>Donate</h3>
+						<h3>Paying the bills</h3>
 					</header>
-					<p><strong>You like this plugin?</strong></p>
-					<p><strong>Please feel free to donate any amount you like!</strong></p>
-					<p>This will help to cover the costs of development and hosting.</p>
-					<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TEDR86ZYP3UR8&lc=BE&item_name=numpad%2ddecimal%2dseparator&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted"><img src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif"/></a>
+					<script type="text/javascript"><!--
+						google_ad_client = "ca-pub-3429241521918594";
+						/* skyscraper-numpaddecsep */
+						google_ad_slot = "1555396880";
+						google_ad_width = 160;
+						google_ad_height = 600;
+						//-->
+					</script>
+					<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
 				</section>
 			</nav>
 		</div>

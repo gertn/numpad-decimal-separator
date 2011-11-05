@@ -15,7 +15,7 @@
  * - numpadDecSeparator this function has three options: 
  * 	1) separator: the separator to use when a user presses the numpad decimal separator key. 
  * 		Only use this when the option useRegionalSettings is false. 
- * 		Defaults to ','. You can also use one of the predifined variables.
+ * 		Defaults to ','. You can also use one of the predefined variables.
  * 	2) useRegionalSettings: when a user presses the numpad decimal separator key it will use 
  * 		the regional options of the operating system. 
  * 		This only works in firefox and ie!!! 
