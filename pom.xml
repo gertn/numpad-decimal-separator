@@ -1,16 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>googlecode.com</groupId>
 	<artifactId>numpad-decimal-separator</artifactId>
 	<packaging>jar</packaging>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>1.1.3-SNAPSHOT</version>
 	<name>Numpad decimal separator plugin for jQuery</name>
 	<url>http://code.google.com/p/numpad-decimal-separator</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jstd-maven-plugin.version>1.3.2.5</jstd-maven-plugin.version>
 	</properties>
 
 	<scm>
@@ -21,9 +23,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.google.jstestdriver</groupId>
-			<artifactId>maven-jstestdriver-plugin</artifactId>
-			<version>1.3.2.1</version>
+			<groupId>com.googlecode.jstd-maven-plugin</groupId>
+			<artifactId>jstd-maven-plugin</artifactId>
+			<version>${jstd-maven-plugin.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -153,9 +155,9 @@
 					</plugin>
 
 					<plugin>
-						<groupId>com.google.jstestdriver</groupId>
-						<artifactId>maven-jstestdriver-plugin</artifactId>
-						<version>1.2.2-SNAPSHOT</version>
+						<groupId>com.googlecode.jstd-maven-plugin</groupId>
+						<artifactId>jstd-maven-plugin</artifactId>
+						<version>${jstd-maven-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>run-tests-firefox-min</id>
@@ -316,18 +318,53 @@
 					</plugin>
 
 					<plugin>
-						<groupId>com.google.jstestdriver</groupId>
-						<artifactId>maven-jstestdriver-plugin</artifactId>
-						<version>1.2.2-SNAPSHOT</version>
+						<groupId>com.googlecode.jstd-maven-plugin</groupId>
+						<artifactId>jstd-maven-plugin</artifactId>
+						<version>${jstd-maven-plugin.version}</version>
 						<executions>
 							<execution>
 								<id>run-tests-firefox</id>
-								<phase>test</phase>
 								<goals>
 									<goal>test</goal>
 								</goals>
 								<configuration>
 									<browser>${firefox.path}</browser>
+									<port>4224</port>
+									<basePath>src</basePath>
+									<testOutput>target/testReports</testOutput>
+									<config>${basedir}/src/jsTestDriver.conf</config>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>jstests-ie</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.4.2</version>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>com.googlecode.jstd-maven-plugin</groupId>
+						<artifactId>jstd-maven-plugin</artifactId>
+						<version>${jstd-maven-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>run-tests-ie</id>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<browser>${ie.path}</browser>
 									<port>4224</port>
 									<basePath>src</basePath>
 									<testOutput>target/testReports</testOutput>
@@ -364,10 +401,14 @@
 
 	<repositories>
 		<repository>
-			<id>jstd-maven-plugin-repo</id>
-			<name>jstd maven plugin repo</name>
+			<id>jstd-maven-plugin google code repo</id>
 			<url>http://jstd-maven-plugin.googlecode.com/svn/maven2</url>
 		</repository>
 	</repositories>
-
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jstd-maven-plugin google code repo</id>
+			<url>http://jstd-maven-plugin.googlecode.com/svn/maven2</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>

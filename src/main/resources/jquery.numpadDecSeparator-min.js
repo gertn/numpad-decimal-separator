@@ -9,7 +9,7 @@ l.preventDefault()
 i.unbind(".numpadDecSeparator");
 i.removeData("numpadDecSeparator")
 })
-},version:function(){return"1.1.2"
+},version:function(){return"1.1.3"
 },mergeDefaults:function(h){e.extend(e.fn.numpadDecSeparator.defaults,h)
 }};
 e.fn.numpadDecSeparator=function(h){var i;

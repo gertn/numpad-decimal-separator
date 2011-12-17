@@ -15,10 +15,10 @@
 				<include>license/**</include>
 				<include>logo/**</include>
 				<include>src/**</include>
-				<include>tests/**</include>
 				<include>changelog.txt</include>
 				<include>pom.xml</include>
 				<include>jsTestDriver.conf</include>
+				<include>jsTestDriver-min.conf</include>
 			</includes>
 		</fileSet>
 	</fileSets>
