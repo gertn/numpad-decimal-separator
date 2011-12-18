@@ -5,11 +5,11 @@ k.bind("keydown.numpadDecSeparator",function(l){i=l.keyCode
 l.preventDefault()
 }})
 }})
-},unbind:function(){return this.each(function(){var i=e(this),h=i.data("numpadDecSeparator");
-i.unbind(".numpadDecSeparator");
-i.removeData("numpadDecSeparator")
+},unbind:function(){return this.each(function(){var h=e(this);
+h.unbind(".numpadDecSeparator");
+h.removeData("numpadDecSeparator")
 })
-},version:function(){return"1.1.4"
+},version:function(){return"1.1.5"
 },mergeDefaults:function(h){e.extend(e.fn.numpadDecSeparator.defaults,h)
 }};
 e.fn.numpadDecSeparator=function(h){var i;
@@ -25,13 +25,14 @@ return h
 }function b(h){return e.browser.opera?78==h:110==h
 }function d(h){return h.useRegionalSettings?c():g(h)
 }function g(h){return h.predefinedVariables[h.separator]?h.predefinedVariables[h.separator]:h.separator
-}function f(h,j){if("selectionStart" in h){var k=h.selectionStart+1;
+}function f(h,j){var k,i;
+if("selectionStart" in h){k=h.selectionStart+1;
 h.value=h.value.substr(0,h.selectionStart)+j+h.value.substr(h.selectionEnd,h.value.length);
 h.selectionStart=k;
 h.selectionEnd=k;
 h.focus()
 }else{if(document.selection){h.focus();
-var i=document.selection.createRange();
+i=document.selection.createRange();
 i.text=j;
 i.moveStart("character",-h.value.length);
 i.moveStart("character",i.text.length);

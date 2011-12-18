@@ -4,7 +4,7 @@
  * With this jQuery plugin you can configure what character to use for the numpad decimal separator.
  * 
  * @author Gert Nuyens
- * @version 1.1.4 
+ * @version 1.1.5 
  * 
  * Dual licensed under the MIT (MIT-LICENSE.txt) 
  * 	or GPL Version 2 licenses (GPL-LICENSE.txt).
@@ -76,13 +76,13 @@
 		},
 		unbind : function() {
 			return this.each(function() {
-				var $this = $(this), data = $this.data('numpadDecSeparator');
+				var $this = $(this);
 				$this.unbind('.numpadDecSeparator');
 				$this.removeData('numpadDecSeparator');
 			});
 		},
 		version : function() {
-			return "1.1.4";
+			return "1.1.5";
 		},
 		mergeDefaults : function(defaultsToMerge) {
 			$.extend($.fn.numpadDecSeparator.defaults, defaultsToMerge);
@@ -127,8 +127,9 @@
 				settings.predefinedVariables[settings.separator] : settings.separator;
 	}
 	function _replaceSelectedVal(input, text) {
+		var start, sel;
 		if ('selectionStart' in input) {
-			var start = input.selectionStart + 1;
+			start = input.selectionStart + 1;
 			input.value = input.value.substr(0, input.selectionStart) + 
 							text + 
 							input.value.substr(input.selectionEnd, input.value.length);
@@ -137,7 +138,7 @@
 			input.focus();
 		} else if (document.selection) {
 			input.focus();
-			var sel = document.selection.createRange();
+			sel = document.selection.createRange();
 			sel.text = text;
 			// Move selection start and end to 0 position
 			sel.moveStart('character', -input.value.length);

@@ -1,8 +1,10 @@
 jasmine.getFixtures().fixturesPath = '/test/test/resources/spec/fixtures';
-var version = "1.1.4";
+var version = '1.1.5';
 describe('numpadDecSeparator', function () {
-	it('version should be correct', function(){
-		expect($.fn.numpadDecSeparator('version')).toEqual(version);
+	describe('version', function (){
+		it('should be correct version', function(){
+			expect($.fn.numpadDecSeparator('version')).toEqual(version);
+		});
 	});
 	describe('with default option', function (){
 		beforeEach(function () {
@@ -103,7 +105,7 @@ describe('numpadDecSeparator', function () {
 		});
 		
 		it('with an apostrophe', function() {
-			$("#testInput").numpadDecSeparator({separator: '\''});
+			$("#testInput").numpadDecSeparator({separator: "\'"});
 			$("#testInput").focus();
 			triggerNumpadDecimalSeperator($("#testInput"));
 			
@@ -142,25 +144,25 @@ describe('numpadDecSeparator', function () {
 	});
 	describe('mergeDefaults', function (){
 		it('should be able to merge separator', function() {
-			var pdv = $.fn.numpadDecSeparator.defaults['predefinedVariables'];
+			var pdv = $.fn.numpadDecSeparator.defaults.predefinedVariables;
 			
 			$.fn.numpadDecSeparator('mergeDefaults', {separator: "SPACE"});
 			
-			expect($.fn.numpadDecSeparator.defaults['separator']).toEqual("SPACE");
-			expect($.fn.numpadDecSeparator.defaults['useRegionalSettings']).toBeFalsy();
+			expect($.fn.numpadDecSeparator.defaults.separator).toEqual("SPACE");
+			expect($.fn.numpadDecSeparator.defaults.useRegionalSettings).toBeFalsy();
 			//merged default predefinedVariables should be the same as before merge
-			expect($.fn.numpadDecSeparator.defaults['predefinedVariables']).toEqual(pdv);
+			expect($.fn.numpadDecSeparator.defaults.predefinedVariables).toEqual(pdv);
 		});
 		it('should be able to merge useRegionalSettings', function() {
-			expect($.fn.numpadDecSeparator.defaults['useRegionalSettings']).toBeFalsy();
+			expect($.fn.numpadDecSeparator.defaults.useRegionalSettings).toBeFalsy();
 			$.fn.numpadDecSeparator('mergeDefaults', {useRegionalSettings: true});
-			expect($.fn.numpadDecSeparator.defaults['useRegionalSettings']).toBeTruthy();
+			expect($.fn.numpadDecSeparator.defaults.useRegionalSettings).toBeTruthy();
 		});
 		it('should be able to merge predefinedVariables', function() {
 			var pdvApos = {APOSTROPHE: "'"};
-			expect($.fn.numpadDecSeparator.defaults['predefinedVariables']).not.toEqual(pdvApos);
+			expect($.fn.numpadDecSeparator.defaults.predefinedVariables).not.toEqual(pdvApos);
 			$.fn.numpadDecSeparator('mergeDefaults', {predefinedVariables: pdvApos});
-			expect($.fn.numpadDecSeparator.defaults['predefinedVariables']).toEqual(pdvApos);
+			expect($.fn.numpadDecSeparator.defaults.predefinedVariables).toEqual(pdvApos);
 		});
 		it('should be able to merge all', function() {
 			var newDefaults = {
