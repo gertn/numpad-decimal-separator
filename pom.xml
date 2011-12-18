@@ -124,6 +124,7 @@
 						<version>1.1</version>
 						<executions>
 							<execution>
+								<id>compress</id>
 								<goals>
 									<goal>jslint</goal>
 									<goal>compress</goal>
@@ -173,6 +174,7 @@
 								</goals>
 								<configuration>
 									<failOnWarning>true</failOnWarning>
+									<sourceDirectory>src/test/resources</sourceDirectory>
 									<encoding>UTF-8</encoding>
 									<excludes>
 										<exclude>**/*min.js</exclude>
