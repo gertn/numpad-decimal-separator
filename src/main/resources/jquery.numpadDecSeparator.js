@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Numpad decimal separator plugin for jQuery.
  * 
  * With this jQuery plugin you can configure what character to use for the numpad decimal separator.
@@ -53,8 +53,7 @@
 	var methods = {
 		init : function(options) {
 			return this.each(function() {
-				var keydownCode = '', $this = $(this), data = $this
-						.data('numpadDecSeparator');
+				var keydownCode = '', $this = $(this), data = $this.data('numpadDecSeparator');
 				if (!$this.attr("readonly") && !data) {
 					$(this).data('numpadDecSeparator', {
 						target : $this
@@ -64,9 +63,9 @@
 					}).bind(
 							'keypress.numpadDecSeparator',
 							function(event) {
-								if (_numericPadPeriodPressed(keydownCode)
-										&& !event.shiftKey && !event.ctrlKey
-										&& !event.altKey) {
+								if (_numericPadPeriodPressed(keydownCode) && 
+										!event.shiftKey && !event.ctrlKey && 
+										!event.altKey) {
 									_replaceSelectedVal(this,
 											_getSeparator(options));
 									event.preventDefault();
@@ -93,16 +92,15 @@
 		var settings;
 		// Method calling logic
 		if (methods[methodOrOptions]) {
-			return methods[methodOrOptions].apply(this, Array.prototype.slice
-					.call(arguments, 1));
+			return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
 		} else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
 			if (methodOrOptions) {
 				settings = $.extend({}, $.fn.numpadDecSeparator.defaults, methodOrOptions);
 			}
 			return methods.init.call(this, settings ? settings : $.fn.numpadDecSeparator.defaults);
 		} else {
-			$.error('Method ' + methodOrOptions
-					+ ' does not exist on jQuery.numpadDecSeparator');
+			$.error('Method ' + methodOrOptions + 
+					' does not exist on jQuery.numpadDecSeparator');
 		}
 	};
 	
@@ -121,8 +119,7 @@
 		return $.browser.opera ? 78 == keydownCode : 110 == keydownCode;
 	}
 	function _getSeparator(settings) {
-		return settings.useRegionalSettings ? _decimalSeparator()
-				: _determineSeparator(settings);
+		return settings.useRegionalSettings ? _decimalSeparator() : _determineSeparator(settings);
 	}
 	
 	function _determineSeparator(settings){
@@ -132,10 +129,9 @@
 	function _replaceSelectedVal(input, text) {
 		if ('selectionStart' in input) {
 			var start = input.selectionStart + 1;
-			input.value = input.value.substr(0, input.selectionStart)
-					+ text
-					+ input.value
-							.substr(input.selectionEnd, input.value.length);
+			input.value = input.value.substr(0, input.selectionStart) + 
+							text + 
+							input.value.substr(input.selectionEnd, input.value.length);
 			input.selectionStart = start;
 			input.selectionEnd = start;
 			input.focus();
