@@ -1,5 +1,5 @@
 jasmine.getFixtures().fixturesPath = '/test/test/resources/spec/fixtures';
-var version = "1.1.3";
+var version = "1.1.4";
 describe('numpadDecSeparator', function () {
 	it('version should be correct', function(){
 		expect($.fn.numpadDecSeparator('version')).toEqual(version);

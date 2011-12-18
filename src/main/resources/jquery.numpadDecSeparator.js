@@ -4,7 +4,7 @@
  * With this jQuery plugin you can configure what character to use for the numpad decimal separator.
  * 
  * @author Gert Nuyens
- * @version 1.1.3 
+ * @version 1.1.4 
  * 
  * Dual licensed under the MIT (MIT-LICENSE.txt) 
  * 	or GPL Version 2 licenses (GPL-LICENSE.txt).
@@ -83,7 +83,7 @@
 			});
 		},
 		version : function() {
-			return "1.1.3";
+			return "1.1.4";
 		},
 		mergeDefaults : function(defaultsToMerge) {
 			$.extend($.fn.numpadDecSeparator.defaults, defaultsToMerge);

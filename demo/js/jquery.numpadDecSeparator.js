@@ -4,7 +4,7 @@
  * With this jQuery plugin you can configure what character to use for the numpad decimal separator.
  * 
  * @author Gert Nuyens
- * @version 1.1.2 
+ * @version 1.1.4 
  * 
  * Dual licensed under the MIT (MIT-LICENSE.txt) 
  * 	or GPL Version 2 licenses (GPL-LICENSE.txt).
@@ -15,7 +15,7 @@
  * - numpadDecSeparator this function has three options: 
  * 	1) separator: the separator to use when a user presses the numpad decimal separator key. 
  * 		Only use this when the option useRegionalSettings is false. 
- * 		Defaults to ','. You can also use one of the predifined variables.
+ * 		Defaults to ','. You can also use one of the predefined variables.
  * 	2) useRegionalSettings: when a user presses the numpad decimal separator key it will use 
  * 		the regional options of the operating system. 
  * 		This only works in firefox and ie!!! 
@@ -83,7 +83,7 @@
 			});
 		},
 		version : function() {
-			return "1.1.2";
+			return "1.1.4";
 		},
 		mergeDefaults : function(defaultsToMerge) {
 			$.extend($.fn.numpadDecSeparator.defaults, defaultsToMerge);

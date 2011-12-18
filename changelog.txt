@@ -3,7 +3,7 @@ numpadDecSeparator changelog
 If there are any issues or if you have comments, please post them on:
 http://code.google.com/p/numpad-decimal-separator/
 
-Changes in version 1.1.3 17/12/2011
+Changes in version 1.1.4 18/12/2011
 -----------------------------------
 Refactored tests to BDD jasmine, removed qunit tests
 
