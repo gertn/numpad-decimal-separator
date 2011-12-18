@@ -4,7 +4,7 @@
 	<groupId>googlecode.com</groupId>
 	<artifactId>numpad-decimal-separator</artifactId>
 	<packaging>jar</packaging>
-	<version>1.1.4</version>
+	<version>1.1.5-SNAPSHOT</version>
 	<name>Numpad decimal separator plugin for jQuery</name>
 	<url>http://code.google.com/p/numpad-decimal-separator</url>
 
@@ -15,9 +15,9 @@
 	</properties>
 
 	<scm>
-		<connection>scm:svn:http://numpad-decimal-separator.googlecode.com/svn/tags/numpad-decimal-separator-1.1.4</connection>
-		<developerConnection>scm:svn:https://numpad-decimal-separator.googlecode.com/svn/tags/numpad-decimal-separator-1.1.4</developerConnection>
-		<url>http://numpad-decimal-separator.googlecode.com/svn/tags/numpad-decimal-separator-1.1.4</url>
+		<connection>scm:svn:http://numpad-decimal-separator.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://numpad-decimal-separator.googlecode.com/svn/trunk/</developerConnection>
+		<url>http://numpad-decimal-separator.googlecode.com/svn/trunk/</url>
 	</scm>
 
 	<dependencies>
