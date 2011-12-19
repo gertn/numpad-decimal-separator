@@ -1,4 +1,3 @@
-jasmine.getFixtures().fixturesPath = '/test/test/resources/spec/fixtures';
 var version = '1.1.5';
 describe('numpadDecSeparator', function () {
 	describe('version', function (){
@@ -190,6 +189,3 @@ describe('numpadDecSeparator', function () {
 		});
 	}
 });
-
-
-
